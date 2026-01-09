@@ -38,8 +38,19 @@ function App() {
     else{
       setCurrentuser("X")
     }
+    
     const newarr = [...array];
     newarr[id] = currentuser
+    let draw = false
+    let count = 0
+    newarr.forEach((elem) => {
+      if(elem){
+        count++
+      }
+    })
+    if (count==9){
+      setwinner("draw")
+    }
     let abc = CheckWinner(newarr)
     setArray(newarr)
     if(abc){ //idhar ....   and  
@@ -57,7 +68,7 @@ function App() {
       <Header />
       <Box array = {array} fun={Clickwala}/>
       {
-        winner ? <p> Winner is : {winner} <br /><button onClick={firse}>Restart</button></p> : <p>Next Move : {currentuser}</p> // winner ki value truthy tabhi hogi jab abc truthy hoga and wo truthy tabhi hoga jab Checkwinner(newarr) ek truthy valuye return karega and wo tabhi return karega jab game jeetenge
+        winner ? winner=="draw" ? <p>DRAW</p> <br /><button onClick={firse}>Restart</button> : <p> Winner is : {winner} <br /><button onClick={firse}>Restart</button></p> : <p>Next Move : {currentuser}</p> // winner ki value truthy tabhi hogi jab abc truthy hoga and wo truthy tabhi hoga jab Checkwinner(newarr) ek truthy valuye return karega and wo tabhi return karega jab game jeetenge
       }
     </>
   )
