@@ -68,7 +68,9 @@ function App() {
       <Header />
       <Box array = {array} fun={Clickwala}/>
       {
-        winner ? winner=="draw" ? <p>DRAW</p> <br /><button onClick={firse}>Restart</button> : <p> Winner is : {winner} <br /><button onClick={firse}>Restart</button></p> : <p>Next Move : {currentuser}</p> // winner ki value truthy tabhi hogi jab abc truthy hoga and wo truthy tabhi hoga jab Checkwinner(newarr) ek truthy valuye return karega and wo tabhi return karega jab game jeetenge
+        winner ? (
+          winner === "draw" ? (<><p>DRAW</p> <br /><div className="draw">< button onClick={firse}>Play Again</button></div></>) : (<p> Winner is {winner} <br /><button onClick={firse}>Play Again</button></p>)
+        ) : (<p>Next Move : {currentuser}</p>)
       }
     </>
   )
